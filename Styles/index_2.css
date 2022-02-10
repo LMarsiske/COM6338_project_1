@@ -1,0 +1,495 @@
+/* Reset rule requirement */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* Adds smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Change background color of whole body to a slightly softer white */
+body {
+  background-color: #fffafa;
+}
+
+/* 
+    Fixed the sidebar to the left side and made it occupy 20% of available width with a minimum of 200px.
+    Added a box shadow to right side instead of border.
+    Used flexbox to make it easy to display all the sidebar contents as a column centered in the space
+  */
+aside {
+  /* position: fixed;
+  width: 20%;
+  min-width: 200px;
+  height: 100vh;
+  box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.24);
+  display: flex;
+  flex-direction: column;
+  align-items: center; */
+  display: none;
+}
+
+/* 
+    Everything related to #avatar_container is based off of this post on stackoverflow https://stackoverflow.com/questions/51447317/image-height-same-as-width.
+    I always want the image to be 50% of sidebar width, 10% top margin, and centered in middle but without extra work, the height doesn't change to match.
+  */
+#avatar_container {
+  position: relative;
+  width: 50%;
+  margin: 10% 0 0 0;
+}
+
+#avatar_container::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
+}
+
+#avatar_container img {
+  position: absolute; /* Take your picture out of the flow */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; /* Make the picture taking the size of it's parent */
+  width: 100%; /* This if for the object-fit */
+  height: 100%; /* This if for the object-fit */
+  object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
+  object-position: center;
+}
+
+/* 
+    I text-aligned both the <h2> and the <p> in case the sidebar gets small enough that the text kicks to two lines.
+    Changed both of their fonts and colors from default and added top margins to space things out.
+  */
+aside h2 {
+  font: normal 2.25em "Futura PT", sans-serif;
+  color: #232b2b;
+  margin: 5% 0 0 0;
+  text-align: center;
+}
+
+aside p {
+  font: normal 400 1.5em "Futura PT", sans-serif;
+  color: #232b2b;
+  margin: 2% 0 0 0;
+  text-align: center;
+}
+
+/* 
+    Wanted nav to be half of available width and always 20% of viewport height, but contents left-aligned within the nav.
+    Using flexbox with space-between is a short way of making the nav contents take the max available space between elments within the container.
+    Added top margin to space away from preceding elements
+  */
+aside nav {
+  width: 50%;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30% 0 0 0;
+}
+
+/* 
+    Changed nav link font and color.
+    Applied a hover effect from this site http://ianlunn.github.io/Hover/, specifically "Underline From Left". I got the code necessary to make it work from looking through the github repo and searching for the keywords in the master css file.
+  */
+aside nav a {
+  font: normal 400 1.5em "Futura PT", sans-serif;
+  color: #232b2b;
+  text-decoration: none;
+  position: relative;
+  transform: perspective(1px) translateZ(0);
+}
+
+/* 
+    This hides a 2px tall, 0 width line at the bottom left of the link, hidden behind the link
+  */
+aside nav a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #580dba;
+  height: 2px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+/* 
+    When the link is hovered, focused, or active, the hidden line grows to the width of the covering element
+  */
+aside nav a:hover:before,
+aside nav a:focus:before,
+aside nav a:active:before {
+  right: 0;
+}
+
+/* Removes the list style from the unordered list */
+aside ul {
+  list-style: none;
+  margin: 50% 0 0 0;
+}
+
+/* Removes any link styling from the supplementary links in the sidebar */
+aside ul a {
+  text-decoration: none;
+}
+
+/* Flexbox makes it easy to display elements side-by-side and vertically center them with one another */
+.section_link {
+  display: flex;
+  margin: 7% 0;
+  align-items: center;
+}
+
+/* Changed the font of the supplementary links and a little space between them and their matching icon */
+.section_link p {
+  font: normal 400 1.125em "Futura PT", sans-serif;
+  color: #232b2b;
+  text-decoration: none;
+  margin: 0 0 0 8px;
+}
+
+#mobile_nav {
+  height: 128px;
+  box-shadow: 0 5px 5px 0px rgba(0, 0, 0, 0.24);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+#mobile_nav button {
+  background: none;
+}
+
+/*
+    Main will always take up the 80% of the body that the sidebar doesn't.
+    The 20% left margin is needed because setting the aside to position:fixed takes it out of the flow. The margin makes main pretend that the aside actually takes up space when it doesn't so they don't overlap.
+  */
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+/* 
+    I wanted the first page to fill the rest of the screen when the site loads. 100% width means it will fill the body horizontally while 100vh height means that it will always be as tall as the viewport on load so that I can place the hero image right at the bottom.
+    Flexbox lets me center things very easily so I will always default to it.
+  */
+#page1 {
+  /* width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; */
+  display: none;
+}
+
+#page1_mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+#page1_mobile h1 {
+  font: normal 600 4em "Futura PT", sans-serif;
+  color: #232b2b;
+  margin: 5% 0 0 0;
+  text-align: center;
+  width: 100%;
+}
+
+#page1_mobile h2 {
+  font: normal 400 2em "Futura PT", sans-serif;
+  color: #232b2b;
+  margin: 2% 0 0 0;
+  text-align: center;
+  width: 100%;
+}
+
+#hero {
+  margin: 5% 0;
+}
+
+/* 
+    Change headline font anmd make sure that headline will always take up 2/3 available width of the section.
+    Margin keeps it off the top of the screen.
+  */
+#headline {
+  font: normal 600 4em "Futura PT", sans-serif;
+  width: 100%;
+  text-align: center;
+  margin: 10% 0 5% 0;
+  color: #232b2b;
+}
+
+/* Selectively underlines only a portion of the text */
+/* #underline {
+  border-bottom: 3px solid #580dba;
+  display: inline-block;
+  line-height: 0.75em;
+} */
+
+/* Ensure that the hero image is always at the bottom of the screen, centered in the section when you are scrolled all the way up to the top */
+/* #hero {
+  position: absolute;
+  bottom: 0;
+} */
+
+/* All remaining pages will have a uniform 100px of padding on all sides */
+.page {
+  /* padding: 100px; */
+  display: none;
+}
+
+.mobile_page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* All <p> tags in remaining pages will be this same font configuration by default */
+.page p {
+  font: normal 400 1.5em "Futura PT";
+  color: #232b2b;
+}
+
+.mobile_page p {
+  width: 80%;
+  font: normal 400 1.125em "Futura PT";
+  color: #232b2b;
+}
+
+.mobile_page_header_container {
+  padding-left: 10%;
+  width: 90%;
+  margin-bottom: 2.5%;
+}
+
+/* All page header <h2> tags in remaining pages will be this same font configuration by default */
+.page_header {
+  /* font: normal 500 3em "Futura PT", sans-serif;
+  color: #fffafa; */
+  display: none;
+}
+
+.mobile_page_header {
+  font: normal 500 4em "Futura PT", sans-serif;
+  color: #fffafa;
+}
+
+#mobile_header_page2 {
+  background-color: #580dba;
+}
+
+#mobile_page2 #second_paragraph {
+  margin: 2.5% 0;
+}
+
+/* 
+    I use a gradient with a sharp line in it to color from the top of each section all the way to common distance past the section header.
+    The color changes with each section. 
+  */
+#page2 {
+  /* background: #580dba;
+  background: linear-gradient(180deg, #580dba 23%, #fffafa 23%); */
+}
+
+/* I want the right edge of the <p> tags in this section to fall on the line marking 70% of available width from the left, so I have to account to the padding using calc() */
+#page2 p {
+  width: calc(70% - 100px);
+}
+
+/* I want the first <p> to be 50px down from the header */
+#page2 #first_paragraph {
+  margin: 50px 0 0 0;
+}
+
+/* And I want the second <p> tag to be 25px down from the first */
+#page2 #second_paragraph {
+  margin: 25px 0 0 0;
+}
+
+/* Same gradient trick in the next section, just in pink this time */
+#page3 {
+  background: #f7567c;
+  background: linear-gradient(180deg, #f7567c 13%, #fffafa 13%);
+}
+
+#mobile_header_page3 {
+  background-color: #f7567c;
+}
+
+/* 
+    I want a div with rounded corners to take up 2/3 of available section width and sit on center.
+    I like flexbox to display the "columns" side by side.
+  */
+#skills_table {
+  width: 80%;
+  border: 3px solid #232b2b;
+  border-radius: 25px;
+  margin: 2.5% auto 5% auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sets the default font configurations for <h3> and pushes them down from the icons*/
+#skills_table h3 {
+  font: normal 500 2.25em "Futura PT", sans-serif;
+  color: #232b2b;
+  margin: 10px 0 0 0;
+}
+
+/* 
+    Each half of the "table" will take up half of the parent width.
+    Flexbox again to display things as a centered column.
+    Padding to keep things away from the border of the box.
+  */
+.half_table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 10px;
+}
+
+/* Making the subheader much wider than text and then centering the contents lets me use a bottom border to create the effect of a very wide underline, stylistically breaks up the flow */
+.table_subheader {
+  width: 80%;
+  text-align: center;
+  font: normal 500 1.875em "Futura PT", sans-serif;
+  border-bottom: 1px solid #f7567c;
+  margin: 40px 0 0 0;
+}
+
+/* Removes any list styling from the lists in the "table" */
+.half_table ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+/* Sets the font configuration for the list items in the "table" and gets some space in between them */
+.half_table li {
+  font: normal 400 1.5em "Futura PT", sans-serif;
+  color: #232b2b;
+  margin: 20px 0;
+}
+
+/* 
+    <p> tag in the #design half takes up 80% of width to match the pink underlines.
+  */
+#design p {
+  width: 80%;
+  margin: 48px 0 19px 0;
+}
+
+/* Last time with the gradient trick, this time in navy */
+#page4 {
+  background: #1c3a6b;
+  background: linear-gradient(180deg, #1c3a6b 27%, #fffafa 27%);
+}
+
+#mobile_header_page4 {
+  background-color: #1c3a6b;
+}
+
+/*
+    Wanted the sub-header and <p> tag to be stacked vertically with the image next to them inline. 
+    The two parts are different heights so I used to flex to align them along the bottom edge of the parent.
+    Margin moves everything down from the section header
+  */
+#container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 5% 0 0 0;
+}
+
+/* Wanted the text portion to fall on the 50% available width line, so used calc() to account for the padding */
+/* #text {
+  width: calc(50% - 100px);
+} */
+
+/* Sets the font configuration for the final page's subheader */
+#text h3 {
+  font: normal 500 1.875em "Futura PT", sans-serif;
+  color: #232b2b;
+}
+
+/* Pushes the main text 25px down and in from the subheader */
+#text p {
+  margin-top: 2.5%;
+  width: 100%;
+}
+
+/* Centers the image in the remaining horizontal space and positions it relatively in preparation for the hover overlay */
+#hover_container {
+  margin: 0 auto;
+  position: relative;
+}
+/*
+    Gives the image a border radius and a box-shadow for depth effect.
+    Display:block comes from this tutorial https://www.w3schools.com/howto/howto_css_image_overlay.asp for creating an image overlay on hover
+  */
+#page4 img {
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.24);
+  display: block;
+  width: 100%;
+}
+
+#mobile_page4 img {
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.24);
+  display: block;
+  width: 100%;
+}
+
+/* 
+    this code also comes mostly from here https://www.w3schools.com/howto/howto_css_image_overlay.asp.
+    Transparent div sits on top of image and matches the dimensions. Added border radius so that the overlay keeps the same shape as the image when it is visible
+  */
+#overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: 0.5s ease;
+  background-color: #000;
+  border-radius: 15px;
+}
+/* Overlay goes from transparent to mostly opaque when the outermost container picks up the hover event */
+#hover_container:hover #overlay {
+  opacity: 0.85;
+}
+
+/* Centers the text inside of the overlay when it is visible */
+#overlay_text {
+  color: #fffafa;
+  font: normal 400 2.25em "Futura PT", sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
