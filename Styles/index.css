@@ -88,11 +88,6 @@ video {
   vertical-align: baseline;
 }
 
-/* Adds smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Change background color of whole body to a slightly softer white */
 body {
   background-color: #fffafa;
@@ -170,6 +165,7 @@ main {
 
 .page {
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -364,6 +360,17 @@ footer p {
   font: normal 400 1.5em "Futura PT";
   color: #232b2b;
   width: fit-content;
+}
+
+@media screen and (max-width: 40em) {
+  /* #menu is the original menu */
+  /* .js #menu {
+    display: none;
+  } */
+  /* 
+  .js .slicknav_menu {
+    display: block;
+  } */
 }
 
 @media (min-width: 1200px) {

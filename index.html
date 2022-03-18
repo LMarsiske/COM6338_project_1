@@ -5,6 +5,35 @@
     <link rel="stylesheet" href="https://use.typekit.net/ggp5jch.css" />
     <link rel="stylesheet" type="text/css" href="Styles/index.css" />
 
+    <!-- Jquery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- Fullpage.js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"
+      integrity="sha512-gSf3NCgs6wWEdztl1e6vUqtRP884ONnCNzCpomdoQ0xXsk06lrxJsR7jX5yM/qAGkPGsps+4bLV5IEjhOZX+gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.extensions.min.js"
+      integrity="sha512-v0jjVvFpZqb1BcXhgLbaBDRKwZ09IpWFZL5NHTNbW9MlSjhZihkxEz2uNeMGd6HuK1qnSEL6JdyTr24ZHlgKow=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
+      integrity="sha512-4rPgyv5iG0PZw8E+oRdfN/Gq+yilzt9rQ8Yci2jJ15rAyBmF0HBE4wFjBkoB72cxBeg63uobaj1UcNt/scV93w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- SEO -->
     <meta charset="UTF-8" />
     <meta
@@ -40,6 +69,7 @@
         <a href="#Skills">Skills</a>
         <a href="#Experience">Experience</a>
       </nav>
+
       <!-- This contains the supplemental links at the bottom of the aside -->
       <ul>
         <li>
@@ -102,7 +132,7 @@
           title="myLogo"
           alt="Lucas Marsiske's personal logo"
         />
-        <button>
+        <!-- <button>
           <img
             src="/images/menu.png"
             height="96"
@@ -110,28 +140,36 @@
             title="Hamburger menu icon"
             alt="Open menu icon"
           />
-        </button>
+        </button> -->
+        <ul id="menu">
+          <li><a href="#">item 1</a></li>
+          <li><a href="#">item 2</a></li>
+          <li><a href="#">item 3</a></li>
+          <li><a href="#">item 4</a></li>
+        </ul>
       </div>
     </header>
     <!-- Main contains the four sections that make up the necessary "pages" of my single-scroll site -->
-    <main>
+    <main id="fullpage">
       <!-- Page 1 contains my headline and the line-art hero banner -->
-      <section id="page1">
-        <!-- Span lets me underline only part of the headline -->
-        <h1 id="headline">
-          I strive to make
-          <span id="underline">beautiful, simple, and effective</span>
-          experiences for the modern web.
-        </h1>
-        <img
-          id="hero"
-          src="Vectors/hero_edited.svg"
-          alt="A multicolored line-art svg of an Apple iPhone, iPad, Macbook, and iMac"
-          title="hero"
-          width="900"
-          height="366"
-        />
-      </section>
+      <div class="section" id="fullpage_section_1">
+        <section id="page1">
+          <!-- Span lets me underline only part of the headline -->
+          <h1 id="headline">
+            I strive to make
+            <span id="underline">beautiful, simple, and effective</span>
+            experiences for the modern web.
+          </h1>
+          <img
+            id="hero"
+            src="Vectors/hero_edited.svg"
+            alt="A multicolored line-art svg of an Apple iPhone, iPad, Macbook, and iMac"
+            title="hero"
+            width="900"
+            height="366"
+          />
+        </section>
+      </div>
       <section id="page1_mobile">
         <img
           src="Vectors/myAvatar.svg"
@@ -159,130 +197,147 @@
         />
       </section>
       <!-- Page 2 contains a small introduction and "about me" section -->
-      <section class="page" id="page2">
-        <div class="page_header_container" id="page_2_header_container">
-          <h2 class="page_header" id="About">About</h2>
-        </div>
-        <!-- Needed to split the text into 2 separate <p> tags so that I could get paragraph spacing between them -->
-        <p id="first_paragraph">
-          After many years of twists and turns in my career and education - from
-          dropping out of school after my freshman year of college, to spending
-          several years working as a mechanic and a handyman, to finally
-          returning to university as a Dean's list student - my journey in
-          development began with a mandatory internship as part of my
-          undergraduate degree. Before that internship I didn't really like
-          programming and thought I might want to work in security. The focus of
-          my internship was to crash course learning React.js and work with
-          another developer to convert a C# application with an AWS backend to a
-          React web application with a Firebase backend. By the end of that
-          internship I was offered a job and knew I wanted to be a developer for
-          the rest of my life. By the end of my first year, I knew that my real
-          passion was in design and front-end development and I've never looked
-          back since.
-        </p>
-        <p id="second_paragraph">
-          As a developer, I try to use my diverse background to inform what I
-          do. I want to make things that work for the people that have to use
-          them, no matter where they're coming from.
-        </p>
-      </section>
+      <div class="section" id="fullpage_section_2">
+        <section class="page" id="page2">
+          <div class="page_header_container" id="page_2_header_container">
+            <h2 class="page_header" id="About">About</h2>
+          </div>
+          <!-- Needed to split the text into 2 separate <p> tags so that I could get paragraph spacing between them -->
+          <p id="first_paragraph">
+            After many years of twists and turns in my career and education -
+            from dropping out of school after my freshman year of college, to
+            spending several years working as a mechanic and a handyman, to
+            finally returning to university as a Dean's list student - my
+            journey in development began with a mandatory internship as part of
+            my undergraduate degree. Before that internship I didn't really like
+            programming and thought I might want to work in security. The focus
+            of my internship was to crash course learning React.js and work with
+            another developer to convert a C# application with an AWS backend to
+            a React web application with a Firebase backend. By the end of that
+            internship I was offered a job and knew I wanted to be a developer
+            for the rest of my life. By the end of my first year, I knew that my
+            real passion was in design and front-end development and I've never
+            looked back since.
+          </p>
+          <p id="second_paragraph">
+            As a developer, I try to use my diverse background to inform what I
+            do. I want to make things that work for the people that have to use
+            them, no matter where they're coming from.
+          </p>
+        </section>
+      </div>
       <!-- Page 3 is the most complicated page on the site, breaking down a list of skills and tools I offer.  -->
-      <section class="page" id="page3">
-        <div class="page_header_container" id="page_3_header_container">
-          <h2 class="page_header" id="Skills">Skills</h2>
-        </div>
-        <!-- The three <div> structure was necessary to achieve the side-by-side columns contained within an outer container. -->
-        <div id="skills_table">
-          <div id="design" class="half_table">
-            <img
-              src="images/design.png"
-              alt="An image of a crossed pencil and ruler"
-              title="design"
-              height="64"
-              width="64"
-            />
-            <h3>Design</h3>
-            <p>
-              I enjoy designing for both print and digital mediums. My previous
-              work has ranged from trade show booth banners to business cards to
-              digital brochures for non-profits. I also do some logo design as
-              well as photo editing.
-            </p>
-            <h4 class="table_subheader">Tools</h4>
-            <ul>
-              <li>Adobe InDesign</li>
-              <li>Adobe Photoshop</li>
-              <li>Adobe Illustrator</li>
-            </ul>
+      <div class="section" id="fullpage_section_3">
+        <section class="page" id="page3">
+          <div class="page_header_container" id="page_3_header_container">
+            <h2 class="page_header" id="Skills">Skills</h2>
           </div>
-          <div id="development" class="half_table">
-            <img
-              src="images/web-development.png"
-              alt="An icon of a code bracket in a web browser"
-              title="development"
-              height="64"
-              width="64"
-            />
-            <h3>Development</h3>
-            <h4 class="table_subheader">Languages</h4>
-            <ul>
-              <li>HTML</li>
-              <li>CSS</li>
-              <li>JavaScript (Vanilla, React, Node)</li>
-            </ul>
-            <h4 class="table_subheader" id="more_margin">Tools</h4>
-            <ul>
-              <li>Visual Studio Code</li>
-              <li>Codepen</li>
-              <li>Github</li>
-              <li>Terminal</li>
-              <li>Material UI</li>
-              <li>Tailwind</li>
-              <li>Bootstrap</li>
-              <li>Adobe Xd</li>
-            </ul>
+          <!-- The three <div> structure was necessary to achieve the side-by-side columns contained within an outer container. -->
+          <div id="skills_table">
+            <div id="design" class="half_table">
+              <img
+                src="images/design.png"
+                alt="An image of a crossed pencil and ruler"
+                title="design"
+                height="64"
+                width="64"
+              />
+              <h3>Design</h3>
+              <p>
+                I enjoy designing for both print and digital mediums. My
+                previous work has ranged from trade show booth banners to
+                business cards to digital brochures for non-profits. I also do
+                some logo design as well as photo editing.
+              </p>
+              <h4 class="table_subheader">Tools</h4>
+              <ul>
+                <li>Adobe InDesign</li>
+                <li>Adobe Photoshop</li>
+                <li>Adobe Illustrator</li>
+              </ul>
+            </div>
+            <div id="development" class="half_table">
+              <img
+                src="images/web-development.png"
+                alt="An icon of a code bracket in a web browser"
+                title="development"
+                height="64"
+                width="64"
+              />
+              <h3>Development</h3>
+              <h4 class="table_subheader">Languages</h4>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript (Vanilla, React, Node)</li>
+              </ul>
+              <h4 class="table_subheader" id="more_margin">Tools</h4>
+              <ul>
+                <li>Visual Studio Code</li>
+                <li>Codepen</li>
+                <li>Github</li>
+                <li>Terminal</li>
+                <li>Material UI</li>
+                <li>Tailwind</li>
+                <li>Bootstrap</li>
+                <li>Adobe Xd</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
-      <!-- PAge 4 discusses my (short) relevant work experience -->
-      <section class="page" id="page4">
-        <div class="page_header_container" id="page_4_header_container">
-          <h2 class="page_header" id="Experience">Experience</h2>
-        </div>
-        <!-- The 2 <divs> here were necessary to get the effect of keeping the subheader stacked together underneath the main header, while keeping it inline with the image. I tried it some other ways with fewer in <div>s and using floats I just didn't have the precise control over it that I wanted.  -->
-        <div id="page4_container">
-          <div id="text">
-            <h3>The MammaCare Foundation</h3>
-            <p>
-              My most recent work has been with the MammaCare foundation, a
-              non-profit focused on training medical professionals to perform
-              clinical breast exams for the early detection of breast cancer. My
-              work has focused on rebuilding their old C# desktop training
-              application as a React.js web application. Unfortunately, most of
-              this site is not publicly available, but the screenshot to the
-              right will take you the public landing page so you can get some
-              idea of the end result.
-            </p>
+        </section>
+      </div>
+      <!-- Page 4 discusses my (short) relevant work experience -->
+      <div class="section" id="fullpage_section_4">
+        <section class="page" id="page4">
+          <div class="page_header_container" id="page_4_header_container">
+            <h2 class="page_header" id="Experience">Experience</h2>
           </div>
-          <figure>
-            <a href="https://learn.mammacare.org/" target="_blank">
-              <div id="img_container">
-                <img
-                  src="images/learn_screenshot.PNG"
-                  alt="An image of the landing page of learn.mammacare.org"
-                  title="mammacare"
-                  width="500"
-                  height="248"
-                />
-              </div>
-            </a>
-            <figcaption>
-              An image of the landing page of learn.mammacare.org
-            </figcaption>
-          </figure>
-        </div>
-      </section>
+          <!-- The 2 <divs> here were necessary to get the effect of keeping the subheader stacked together underneath the main header, while keeping it inline with the image. I tried it some other ways with fewer in <div>s and using floats I just didn't have the precise control over it that I wanted.  -->
+          <div id="page4_container">
+            <div id="text">
+              <h3>The MammaCare Foundation</h3>
+              <p>
+                My most recent work has been with the MammaCare foundation, a
+                non-profit focused on training medical professionals to perform
+                clinical breast exams for the early detection of breast cancer.
+                My work has focused on rebuilding their old C# desktop training
+                application as a React.js web application. Unfortunately, most
+                of this site is not publicly available, but the screenshot to
+                the right will take you the public landing page so you can get
+                some idea of the end result.
+              </p>
+            </div>
+            <figure>
+              <a href="https://learn.mammacare.org/" target="_blank">
+                <div id="img_container">
+                  <img
+                    src="images/learn_screenshot.PNG"
+                    alt="An image of the landing page of learn.mammacare.org"
+                    title="mammacare"
+                    width="500"
+                    height="248"
+                  />
+                </div>
+              </a>
+              <figcaption>
+                An image of the landing page of learn.mammacare.org
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+      </div>
     </main>
     <footer><p>&copy; Lucas Marsiske 2022</p></footer>
+    <script>
+      new fullpage("#fullpage", {
+        //options here
+        anchors: ["hero", "about", "skills", "experience"],
+        autoScrolling: true,
+        scrollHorizontally: true,
+        navigation: true,
+        navigationPosition: "right",
+        slidesNavigation: true,
+      });
+    </script>
   </body>
 </html>
