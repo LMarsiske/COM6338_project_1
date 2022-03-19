@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://use.typekit.net/ggp5jch.css" />
     <link rel="stylesheet" type="text/css" href="Styles/index.css" />
 
-    <!-- Jquery -->
+    <!-- jQuery -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
@@ -34,6 +34,14 @@
       referrerpolicy="no-referrer"
     />
 
+    <!-- Modernizr -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"
+      integrity="sha512-3n19xznO0ubPpSwYCRRBgHh63DrV+bdZfHK52b1esvId4GsfwStQNPJFjeQos2h3JwCmZl0/LgLxSKMAI55hgw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <!-- SEO -->
     <meta charset="UTF-8" />
     <meta
@@ -44,6 +52,8 @@
       name="description"
       content="Hi, I'm Lucas. Nice to meet you. I'm a web developer and designer focused on React.js development and front-end design."
     />
+
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
     <title>Lucas Marsiske | Front-end Developer & Designer</title>
   </head>
@@ -65,9 +75,9 @@
       <p>Front-end Developer & Designer</p>
       <!-- This makes up the actual nav elements -->
       <nav>
-        <a href="#About">About</a>
-        <a href="#Skills">Skills</a>
-        <a href="#Experience">Experience</a>
+        <a href="#fullpage_section_2">About</a>
+        <a href="#fullpage_section_3">Skills</a>
+        <a href="#fullpage_section_4">Experience</a>
       </nav>
 
       <!-- This contains the supplemental links at the bottom of the aside -->
@@ -125,34 +135,42 @@
     </aside>
     <header>
       <div id="mobile_nav">
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" />
+            <span></span>
+            <span></span>
+            <span></span>
+            <ul id="menu">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Info</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
         <img
           src="/images/logo.png"
-          height="96"
-          width="96"
+          height="48"
+          width="48"
           title="myLogo"
           alt="Lucas Marsiske's personal logo"
         />
         <!-- <button>
           <img
             src="/images/menu.png"
-            height="96"
-            width="96"
+            height="48"
+            width="48"
             title="Hamburger menu icon"
             alt="Open menu icon"
           />
         </button> -->
-        <ul id="menu">
-          <li><a href="#">item 1</a></li>
-          <li><a href="#">item 2</a></li>
-          <li><a href="#">item 3</a></li>
-          <li><a href="#">item 4</a></li>
-        </ul>
       </div>
     </header>
     <!-- Main contains the four sections that make up the necessary "pages" of my single-scroll site -->
     <main id="fullpage">
       <!-- Page 1 contains my headline and the line-art hero banner -->
-      <div class="section" id="fullpage_section_1">
+      <div class="section" id="page1_desktop_section">
         <section id="page1">
           <!-- Span lets me underline only part of the headline -->
           <h1 id="headline">
@@ -170,34 +188,37 @@
           />
         </section>
       </div>
-      <section id="page1_mobile">
-        <img
-          src="Vectors/myAvatar.svg"
-          alt="An svg avatar"
-          title="avatar"
-          height="400"
-          width="400"
-        />
+      <div class="section" id="page1_mobile_section">
+        <section id="page1_mobile">
+          <div id="intro">
+            <img
+              id="avatar"
+              src="Vectors/myAvatar.svg"
+              alt="An svg avatar"
+              title="avatar"
+              height="400"
+              width="400"
+            />
 
-        <h1>Lucas Marsiske</h1>
-        <h2>Front-end Developer & Designer</h2>
-
-        <!-- Span lets me underline only part of the headline -->
-        <h3 id="mobile_headline">
-          I strive to make beautiful, simple, and effective experiences for the
-          modern web.
-        </h3>
-        <img
-          id="mobile_hero"
-          src="Vectors/hero_edited.svg"
-          alt="A multicolored line-art svg of an Apple iPhone, iPad, Macbook, and iMac"
-          title="hero"
-          width="900"
-          height="366"
-        />
-      </section>
+            <h1>Lucas Marsiske</h1>
+            <h2>Front-end Developer & Designer</h2>
+          </div>
+          <h3 id="mobile_headline">
+            I strive to make beautiful, simple, and effective experiences for
+            the modern web.
+          </h3>
+          <img
+            id="mobile_hero"
+            src="Vectors/hero_edited.svg"
+            alt="A multicolored line-art svg of an Apple iPhone, iPad, Macbook, and iMac"
+            title="hero"
+            width="900"
+            height="366"
+          />
+        </section>
+      </div>
       <!-- Page 2 contains a small introduction and "about me" section -->
-      <div class="section" id="fullpage_section_2">
+      <div class="section">
         <section class="page" id="page2">
           <div class="page_header_container" id="page_2_header_container">
             <h2 class="page_header" id="About">About</h2>
@@ -227,7 +248,7 @@
         </section>
       </div>
       <!-- Page 3 is the most complicated page on the site, breaking down a list of skills and tools I offer.  -->
-      <div class="section" id="fullpage_section_3">
+      <div class="section">
         <section class="page" id="page3">
           <div class="page_header_container" id="page_3_header_container">
             <h2 class="page_header" id="Skills">Skills</h2>
@@ -287,7 +308,7 @@
         </section>
       </div>
       <!-- Page 4 discusses my (short) relevant work experience -->
-      <div class="section" id="fullpage_section_4">
+      <div class="section">
         <section class="page" id="page4">
           <div class="page_header_container" id="page_4_header_container">
             <h2 class="page_header" id="Experience">Experience</h2>
@@ -328,15 +349,38 @@
       </div>
     </main>
     <footer><p>&copy; Lucas Marsiske 2022</p></footer>
+
     <script>
       new fullpage("#fullpage", {
         //options here
-        anchors: ["hero", "about", "skills", "experience"],
+        anchors: [
+          "fullpage_section_1",
+          "fullpage_section_2",
+          "fullpage_section_3",
+          "fullpage_section_4",
+          "fullpage_section_5",
+        ],
         autoScrolling: true,
         scrollHorizontally: true,
-        navigation: true,
-        navigationPosition: "right",
-        slidesNavigation: true,
+        responsiveWidth: 1000,
+      });
+    </script>
+    <script>
+      let adjustClasses = function () {
+        if (Modernizr.mq("(min-width: 1000px)")) {
+          $("#page1_mobile_section").removeClass();
+        } else {
+          $("#page1_mobile_section").addClass([
+            "section",
+            "fp-section",
+            "fp-table",
+          ]);
+        }
+      };
+
+      $(function () {
+        $(window).resize(adjustClasses);
+        adjustClasses();
       });
     </script>
   </body>
