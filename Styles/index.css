@@ -269,7 +269,7 @@ main {
 
 /* All <p> tags in remaining pages will be this same font configuration by default */
 .page p {
-  font: normal 400 2em "Futura PT";
+  font: normal 400 1.25em "Futura PT";
   color: #232b2b;
 }
 
@@ -281,7 +281,7 @@ main {
 
 /* All page header <h2> tags in remaining pages will be this same font configuration by default */
 .page_header {
-  font: normal 500 4em "Futura PT", sans-serif;
+  font: normal 500 2em "Futura PT", sans-serif;
   color: #fffafa;
 }
 
@@ -337,7 +337,7 @@ main {
     Padding to keep things away from the border of the box.
   */
 .half_table {
-  width: 100%;
+  width: 95%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -348,7 +348,7 @@ main {
 .table_subheader {
   width: 80%;
   text-align: center;
-  font: normal 500 1.875em "Futura PT", sans-serif;
+  font: normal 500 1.5em "Futura PT", sans-serif;
   border-bottom: 1px solid #f7567c;
   margin-bottom: 5%;
 }
@@ -361,7 +361,7 @@ main {
 
 /* Sets the font configuration for the list items in the "table" and gets some space in between them */
 .half_table li {
-  font: normal 400 1.5em "Futura PT", sans-serif;
+  font: normal 400 1.25em "Futura PT", sans-serif;
   color: #232b2b;
   margin: 5% 0;
 }
@@ -477,40 +477,18 @@ footer p {
   aside {
     position: fixed;
     width: 20%;
-    min-width: 200px;
     height: 100vh;
     box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.24);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
   }
 
-  /* 
-      Everything related to #avatar_container is based off of this post on stackoverflow https://stackoverflow.com/questions/51447317/image-height-same-as-width.
-      I always want the image to be 50% of sidebar width, 10% top margin, and centered in middle but without extra work, the height doesn't change to match.
-    */
-  #avatar_container {
-    position: relative;
-    width: 50%;
+  #avatar {
+    width: 90%;
+    height: auto;
     margin: 10% 0 0 0;
-  }
-
-  #avatar_container::after {
-    content: "";
-    display: block;
-    padding-bottom: 100%; /* The padding depends on the width, not on the height, so with a padding-bottom of 100% you will get a square */
-  }
-
-  #avatar_container img {
-    position: absolute; /* Take your picture out of the flow */
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0; /* Make the picture taking the size of it's parent */
-    width: 100%; /* This if for the object-fit */
-    height: 100%; /* This if for the object-fit */
-    object-fit: cover; /* Equivalent of the background-size: cover; of a background-image */
-    object-position: center;
   }
 
   /* 
@@ -610,7 +588,7 @@ footer p {
     font: normal 400 1.125em "Futura PT", sans-serif;
     color: #232b2b;
     text-decoration: none;
-    margin: 0 0 0 1%;
+    margin: 0 0 0 5%;
     width: fit-content;
   }
 
@@ -625,7 +603,7 @@ footer p {
   */
   main {
     width: 80%;
-    margin: 0 0 2.5% 20%;
+    margin: 0 0 0 auto;
   }
 
   .page p {
@@ -661,6 +639,8 @@ footer p {
     margin: 0;
     position: absolute;
     bottom: 0;
+    max-width: 90%;
+    height: auto;
   }
 }
 

@@ -33,6 +33,12 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"
+      integrity="sha512-pYyQWhzi2lV+RM4GmaUA56VPL48oLVvsHmP9tuQ8MaZMDHomVEDjXXnfSVKXayy+wLclKPte0KbsuVoFImtE7w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <!-- Modernizr -->
     <script
@@ -61,7 +67,7 @@
     <!-- This aside makes up the sidebar navigation -->
     <aside>
       <!-- This div is necessary for a CSS trick related to sizing the image. I'll go more in depth in index.css -->
-      <div id="avatar_container">
+      <div style="display: flex; flex-direction: column; align-items: center">
         <img
           id="avatar"
           src="Vectors/myAvatar.svg"
@@ -70,14 +76,26 @@
           height="400"
           width="400"
         />
+        <!-- <div id="avatar_container">
+        <img
+          id="avatar"
+          src="Vectors/myAvatar.svg"
+          alt="An svg avatar"
+          title="avatar"
+          height="400"
+          width="400"
+        />
+      </div> -->
+
+        <h2>Lucas Marsiske</h2>
+        <p>Front-end Developer & Designer</p>
       </div>
-      <h2>Lucas Marsiske</h2>
-      <p>Front-end Developer & Designer</p>
       <!-- This makes up the actual nav elements -->
       <nav>
-        <a href="#fullpage_section_2">About</a>
-        <a href="#fullpage_section_3">Skills</a>
-        <a href="#fullpage_section_4">Experience</a>
+        <a href="#fullpage_section_1">Home</a>
+        <a href="#fullpage_section_3">About</a>
+        <a href="#fullpage_section_4">Skills</a>
+        <a href="#fullpage_section_5">Experience</a>
       </nav>
 
       <!-- This contains the supplemental links at the bottom of the aside -->
@@ -95,7 +113,7 @@
               height="36"
               width="36"
             />
-            <p>lmarsiske@gmail.com</p>
+            <p>Email</p>
           </a>
         </li>
         <li>
@@ -111,7 +129,7 @@
               height="36"
               width="36"
             />
-            <p>github.com/LMarsiske</p>
+            <p>Github</p>
           </a>
         </li>
         <li>
@@ -127,7 +145,7 @@
               height="36"
               width="36"
             />
-            <p>linkedin.com/in/lucas-marsiske</p>
+            <p>LinkedIn</p>
           </a>
         </li>
       </ul>
@@ -142,10 +160,18 @@
             <span></span>
             <span></span>
             <ul id="menu">
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Info</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#fullpage_section_2">Home</a></li>
+              <li><a href="#fullpage_section_3">About</a></li>
+              <li><a href="#fullpage_section_4">Skills</a></li>
+              <li><a href="#fullpage_section_5">Experience</a></li>
+              <li><hr /></li>
+              <li><a href="mailto:lmarsiske@gmail.com">Email</a></li>
+              <li><a href="https://github.com/LMarsiske">Github</a></li>
+              <li>
+                <a href="https://www.linkedin.com/in/lucas-marsiske/"
+                  >LinkedIn</a
+                >
+              </li>
             </ul>
           </div>
         </nav>
@@ -248,7 +274,7 @@
         </section>
       </div>
       <!-- Page 3 is the most complicated page on the site, breaking down a list of skills and tools I offer.  -->
-      <div class="section">
+      <div class="section fp-auto-height-responsive">
         <section class="page" id="page3">
           <div class="page_header_container" id="page_3_header_container">
             <h2 class="page_header" id="Skills">Skills</h2>
@@ -362,12 +388,13 @@
         ],
         autoScrolling: true,
         scrollHorizontally: true,
-        responsiveWidth: 1000,
+        responsiveWidth: 768,
+        scrollOverflow: true,
       });
     </script>
     <script>
       let adjustClasses = function () {
-        if (Modernizr.mq("(min-width: 1000px)")) {
+        if (Modernizr.mq("(min-width: 768px)")) {
           $("#page1_mobile_section").removeClass();
         } else {
           $("#page1_mobile_section").addClass([
@@ -376,6 +403,12 @@
             "fp-table",
           ]);
         }
+
+        // if (Modernizr.mq("(min-width: 768px) and (max-width:1200px)")) {
+        //   $(".section:nth-child(4)").addClass("fp-auto-height");
+        // } else {
+        //   $(".section:nth-child(4)").removeClass("fp-auto-height");
+        // }
       };
 
       $(function () {
